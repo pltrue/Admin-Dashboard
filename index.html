@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papNMlMRYshBl1DkLkWfRYl2/rk2FOWvOi/1zXRKy5T+nc9svWUr4QXc5iD6ER3jnChhcq8S+cn8+gH9I5d1Ew==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E40AF',
+            secondary: '#1E3A8A',
+            accent: '#6366F1'
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-gray-900 text-gray-200 h-screen flex font-sans">
+<!-- Sidebar -->
+<aside class="w-72 bg-gray-800 p-6 space-y-6 shadow-xl flex flex-col">
+    <h1 class="text-2xl font-bold text-white flex items-center gap-2">
+      <i class="fas fa-tachometer-alt"></i> Admin Dashboard
+    </h1>
+    <nav>
+      <ul class="space-y-4">
+        <li class="p-3 bg-gray-700 rounded-lg hover:bg-primary hover:scale-105 transform transition-all flex items-center gap-2">
+          <i class="fas fa-home"></i> <a href="#">Dashboard</a>
+        </li>
+      </ul>
+    </nav>
+  
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-center text-white p-4 mt-auto">
+      <p class="text-sm">Powered by <a href="https://openai.com" target="_blank" class="text-accent hover:underline">OpenAI</a></p>
+    </footer>
+  </aside>
+  
+
+  <!-- Main Content -->
+  <main class="flex-1 p-8 space-y-6">
+    <div class="flex justify-between items-center">
+      <h2 class="text-3xl font-semibold text-white">Dashboard Overview</h2>
+      <button class="bg-accent text-white px-4 py-2 rounded-lg shadow-lg hover:bg-indigo-500 hover:scale-105 transform transition">
+        <i class="fas fa-plus"></i> Add New
+      </button>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-105">
+        <i class="fas fa-user text-4xl text-accent"></i>
+        <div>
+          <h3 class="text-lg font-bold text-accent">Users</h3>
+          <p class="text-4xl font-bold mt-2">1,230</p>
+        </div>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-105">
+        <i class="fas fa-dollar-sign text-4xl text-accent"></i>
+        <div>
+          <h3 class="text-lg font-bold text-accent">Revenue</h3>
+          <p class="text-4xl font-bold mt-2">$4,500</p>
+        </div>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-105">
+        <i class="fas fa-shopping-cart text-4xl text-accent"></i>
+        <div>
+          <h3 class="text-lg font-bold text-accent">Orders</h3>
+          <p class="text-4xl font-bold mt-2">320</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="mt-8">
+      <h3 class="text-xl font-semibold mb-4 text-white">Recent Orders</h3>
+      <div class="overflow-hidden rounded-lg shadow-md">
+        <table class="w-full bg-gray-800 text-white">
+          <thead class="bg-gray-700">
+            <tr>
+              <th class="p-4 text-left">Order ID</th>
+              <th class="p-4 text-left">Customer</th>
+              <th class="p-4 text-left">Amount</th>
+              <th class="p-4 text-left">Status</th>
+            </tr>
+          </thead>
+          <tbody id="orders" class="divide-y divide-gray-700">
+            <!-- Data will be inserted here dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-white mb-4">Social Media</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-gray-700 p-4 rounded-lg hover:scale-105 transform transition-all">
+              <img src="https://wallpapercat.com/w/full/8/6/b/1251776-1920x1080-desktop-full-hd-facebook-wallpaper-image.jpg" class="w-full rounded-lg" alt="Product">
+              <p class="text-center mt-2">Facebook</p>
+            </div>
+            <div class="bg-gray-700 p-4 rounded-lg hover:scale-105 transform transition-all">
+              <img src="https://wallpapergod.com/images/hd/instagram-1920X1080-wallpaper-ohithsiqp82tphv2.jpeg" class="w-full rounded-lg" alt="Product">
+              <p class="text-center mt-2">Instagram</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-white mb-4">Sponsored Products</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-gray-700 p-4 rounded-lg hover:scale-105 transform transition-all">
+              <img src="https://www.advertisemint.com/wp-content/uploads/2021/10/Sponsored-Product-Ads1.png" class="w-full rounded-lg" alt="Product">
+              <p class="text-center mt-2">Product A</p>
+            </div>
+            <div class="bg-gray-700 p-4 rounded-lg hover:scale-105 transform transition-all">
+              <img src="https://www.advertisemint.com/wp-content/uploads/2021/10/Sponsored-Product-Ads1.png" class="w-full rounded-lg" alt="Product">
+              <p class="text-center mt-2">Product B</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
+
+  <script>
+    // Sample data for recent orders
+    const orders = [
+      { id: '#001', customer: 'John Doe', amount: '$120', status: 'Completed' },
+      { id: '#002', customer: 'Jane Smith', amount: '$340', status: 'Pending' },
+      { id: '#003', customer: 'Mike Johnson', amount: '$220', status: 'Canceled' }
+    ];
+
+    // Populate table with orders
+    const ordersTable = document.getElementById('orders');
+    orders.forEach(order => {
+      const statusColor =
+        order.status === 'Completed'
+          ? 'green'
+          : order.status === 'Pending'
+          ? 'yellow'
+          : 'red';
+      const row = `<tr class='hover:bg-gray-700 transition'>
+          <td class='p-4 border-b border-gray-700'>${order.id}</td>
+          <td class='p-4 border-b border-gray-700'>${order.customer}</td>
+          <td class='p-4 border-b border-gray-700'>${order.amount}</td>
+          <td class='p-4 border-b border-gray-700'><span class='px-3 py-1 rounded-lg bg-${statusColor}-500'>${order.status}</span></td>
+        </tr>`;
+      ordersTable.innerHTML += row;
+    });
+  </script>
+
+</body>
+</html>
